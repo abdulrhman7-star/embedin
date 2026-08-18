@@ -59,60 +59,57 @@ export default function HomeScreen() {
     }, [])
   );
 
-  // أزرار التصفية (تم الترجمة إلى العربية)
   const filters = [
-    { key: 'all', label: 'الكل', icon: 'albums-outline' },
-    { key: 'movies', label: 'أفلام', icon: 'film-outline' },
-    { key: 'series', label: 'مسلسلات', icon: 'tv-outline' }
+    { key: 'all', label: 'All', icon: 'albums-outline' },
+    { key: 'movies', label: 'Movies', icon: 'film-outline' },
+    { key: 'series', label: 'Series', icon: 'tv-outline' }
   ];
 
-  // قائمة "الكل" (عناوين مترجمة)
+  // All mode fixed curated list
   const allLists = useMemo(() => [
-    { apiUrl: CatalogUrl.trendingMovies, title: 'الأفلام الرائجة', type: 'movie' },
-    { apiUrl: CatalogUrl.trendingSeries, title: 'المسلسلات الرائجة', type: 'series' },
-    { apiUrl: CatalogUrl.popularMovies, title: 'الأفلام الأكثر مشاهدة', type: 'movie' },
-    { apiUrl: CatalogUrl.popularSeries, title: 'المسلسلات الأكثر مشاهدة', type: 'series' },
-    { apiUrl: CatalogUrl.topMovies, title: 'أفضل الأفلام تقييماً', type: 'movie' },
-    { apiUrl: CatalogUrl.topSeries, title: 'أفضل المسلسلات تقييماً', type: 'series' },
-    { apiUrl: CatalogUrl.nowPlayingMovies, title: 'الأفلام المعروضة حالياً', type: 'movie' },
-    { apiUrl: CatalogUrl.onTheAirTv, title: 'المسلسلات المعروضة حالياً', type: 'series' },
-    { apiUrl: CatalogUrl.upcomingMovies, title: 'الأفلام القادمة', type: 'movie' },
-    { apiUrl: CatalogUrl.airingTodayTv, title: 'المسلسلات التي تعرض اليوم', type: 'series' },
+    { apiUrl: CatalogUrl.trendingMovies, title: 'Movies - Trending', type: 'movie' },
+    { apiUrl: CatalogUrl.trendingSeries, title: 'Series - Trending', type: 'series' },
+    { apiUrl: CatalogUrl.popularMovies, title: 'Movies - Popular', type: 'movie' },
+    { apiUrl: CatalogUrl.popularSeries, title: 'Series - Popular', type: 'series' },
+    { apiUrl: CatalogUrl.topMovies, title: 'Movies - Top Rated', type: 'movie' },
+    { apiUrl: CatalogUrl.topSeries, title: 'Series - Top Rated', type: 'series' },
+    { apiUrl: CatalogUrl.nowPlayingMovies, title: 'Movies - Now Playing', type: 'movie' },
+    { apiUrl: CatalogUrl.onTheAirTv, title: 'Series - On the Air', type: 'series' },
+    { apiUrl: CatalogUrl.upcomingMovies, title: 'Movies - Upcoming', type: 'movie' },
+    { apiUrl: CatalogUrl.airingTodayTv, title: 'Series - Airing Today', type: 'series' },
   ], []);
 
-  // قائمة الأفلام (تصنيفات مترجمة)
   const movieLists = useMemo(() => [
-    { apiUrl: CatalogUrl.trendingMovies, title: 'رائج', type: 'movie' },
-    { apiUrl: CatalogUrl.nowPlayingMovies, title: 'يعرض حالياً', type: 'movie' },
-    { apiUrl: MovieGneres.action, title: 'أكشن', type: 'movie' },
-    { apiUrl: MovieGneres.adventure, title: 'مغامرة', type: 'movie' },
-    { apiUrl: MovieGneres.scifi, title: 'خيال علمي', type: 'movie' },
-    { apiUrl: MovieGneres.comedy, title: 'كوميدي', type: 'movie' },
-    { apiUrl: MovieGneres.family, title: 'عائلي', type: 'movie' },
-    { apiUrl: MovieGneres.animation, title: 'رسوم متحركة', type: 'movie' },
-    { apiUrl: MovieGneres.thriller, title: 'إثارة', type: 'movie' },
-    { apiUrl: MovieGneres.crime, title: 'جريمة', type: 'movie' },
-    { apiUrl: MovieGneres.horror, title: 'رعب', type: 'movie' },
-    { apiUrl: MovieGneres.mystery, title: 'غموض', type: 'movie' },
-    { apiUrl: MovieGneres.fantasy, title: 'فانتازيا', type: 'movie' },
-    { apiUrl: MovieGneres.drama, title: 'دراما', type: 'movie' },
+    { apiUrl: CatalogUrl.trendingMovies, title: 'Trending', type: 'movie' },
+    { apiUrl: CatalogUrl.nowPlayingMovies, title: 'Now Playing', type: 'movie' },
+    { apiUrl: MovieGneres.action, title: 'Action', type: 'movie' },
+    { apiUrl: MovieGneres.adventure, title: 'Adventure', type: 'movie' },
+    { apiUrl: MovieGneres.scifi, title: 'Sci-Fi', type: 'movie' },
+    { apiUrl: MovieGneres.comedy, title: 'Comedy', type: 'movie' },
+    { apiUrl: MovieGneres.family, title: 'Family', type: 'movie' },
+    { apiUrl: MovieGneres.animation, title: 'Animation', type: 'movie' },
+    { apiUrl: MovieGneres.thriller, title: 'Thriller', type: 'movie' },
+    { apiUrl: MovieGneres.crime, title: 'Crime', type: 'movie' },
+    { apiUrl: MovieGneres.horror, title: 'Horror', type: 'movie' },
+    { apiUrl: MovieGneres.mystery, title: 'Mystery', type: 'movie' },
+    { apiUrl: MovieGneres.fantasy, title: 'Fantasy', type: 'movie' },
+    { apiUrl: MovieGneres.drama, title: 'Drama', type: 'movie' },
   ], []);
 
-  // قائمة المسلسلات (تصنيفات مترجمة)
   const seriesLists = useMemo(() => [
-    { apiUrl: CatalogUrl.trendingSeries, title: 'رائج', type: 'series' },
-    { apiUrl: TvGneres.actionAdventure, title: 'أكشن ومغامرة', type: 'series' },
-    { apiUrl: TvGneres.drama, title: 'دراما', type: 'series' },
-    { apiUrl: TvGneres.crime, title: 'جريمة', type: 'series' },
-    { apiUrl: TvGneres.comedy, title: 'كوميدي', type: 'series' },
-    { apiUrl: TvGneres.mystery, title: 'غموض', type: 'series' },
-    { apiUrl: TvGneres.scifiFantsy, title: 'خيال علمي وفانتازيا', type: 'series' },
-    { apiUrl: TvGneres.animation, title: 'رسوم متحركة', type: 'series' },
-    { apiUrl: TvGneres.family, title: 'عائلي', type: 'series' },
-    { apiUrl: TvGneres.kids, title: 'أطفال', type: 'series' },
+    { apiUrl: CatalogUrl.trendingSeries, title: 'Trending', type: 'series' },
+    { apiUrl: TvGneres.actionAdventure, title: 'Action & Adventure', type: 'series' },
+    { apiUrl: TvGneres.drama, title: 'Drama', type: 'series' },
+    { apiUrl: TvGneres.crime, title: 'Crime', type: 'series' },
+    { apiUrl: TvGneres.comedy, title: 'Comedy', type: 'series' },
+    { apiUrl: TvGneres.mystery, title: 'Mystery', type: 'series' },
+    { apiUrl: TvGneres.scifiFantsy, title: 'Sci-Fi & Fantasy', type: 'series' },
+    { apiUrl: TvGneres.animation, title: 'Animation', type: 'series' },
+    { apiUrl: TvGneres.family, title: 'Family', type: 'series' },
+    { apiUrl: TvGneres.kids, title: 'Kids', type: 'series' },
   ], []);
 
-  // اختيار القائمة المناسبة حسب التصفية
+  // Pick correct list based on filter
   const activeLists = useMemo(() => {
     if (filter === 'all') return allLists;
     if (filter === 'movies') return movieLists;
@@ -151,7 +148,7 @@ export default function HomeScreen() {
         />
 
         <View style={styles.contentContainer}>
-          {/* Filter buttons - ستظهر الآن بالعربية */}
+          {/* Filter buttons */}
           <View style={[styles.filtersContainer]}>
             <FlatList
               data={filters}
