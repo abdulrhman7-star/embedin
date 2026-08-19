@@ -1,4 +1,3 @@
-```tsx
 import { router } from 'expo-router';
 import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import {
@@ -1072,4 +1071,3 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
 });
-```
